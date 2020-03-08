@@ -1,0 +1,155 @@
+<!---
+  Comapany:Khushi-Infotech
+  Website:http://www.khushinfotech.com/
+  Licence:Copyright © 2018 Khushi-Infotech | All Rights Reserved.
+  Last Modified Date:07-03-2020 10.22 AM
+  Version:1.1
+
+--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Server restart is required</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+ <script src="https://kit.fontawesome.com/ee39915a35.js" crossorigin="anonymous"></script>
+  <style>
+    body
+    {
+
+      font-family: 'Ubuntu', sans-serif;
+    }
+    .outerLayer
+    {
+      background-color:white;
+    }
+    .message
+    {
+
+      background-color:#37506c;
+      padding:30px;
+      color:white;
+      border-radius:5px;
+      font-weight:bold;
+      font-size:20px;
+
+    }
+    .attention
+    {
+      background-color: #ff715a;
+      padding:10px;
+      border-radius:5px;
+      width: 30%;
+      color:white;
+      font-weight:bold;
+    }
+    .timeLeft
+    {
+      background-color: #ff715a;
+      width:70%;
+      margin-left: 15%;
+      margin-right: 15%;
+      padding:15px;
+      border-radius:5px;
+      margin-top:-16px;
+      color:white;
+      font-size: 30px;
+      font-weight: bold;
+
+    }
+  </style>
+</head>
+<body id="bdy" href="javascript:void(0)">
+
+
+<div class="container">
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" >
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header outerLayer">
+          <!-- <button type="button" class="close" data-toggle="modal"><i class="far fa-times-circle"></i></button> -->
+          <h4 class="attention">
+            <i style="color:#7bff45" class="fas fa-circle"></i>
+          Attention..!</h4>
+        </div>
+        <div  class="modal-body outerLayer">
+
+        <img width="100%;" src="maintenancemodeerror.png">
+          <br><br>
+          <center id="message" class="message">
+          
+          </center>
+          <center id="timer" class="timeLeft"></center>
+        </div>
+        <!--<div class="modal-footer outerLayer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>--->
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<script>
+  
+  $(document).ready(function()
+  {
+      $("#myModal").modal('show');
+
+      
+
+      $("#bdy").click(function()
+          {
+            
+                /*event.preventDefault();*/
+             window.location.href = "popup.html";
+          });
+  });
+</script>
+
+<script >
+      // Set the date we're counting down to
+var countDownDate = new Date("Mar 7, 2020 13:30:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+  document.getElementById("message").innerHTML = "Server restart is required. Please commit your work by<br>";
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("timer").innerHTML =minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "Done..!";
+    document.getElementById("message").innerHTML = "Thank You..!";
+  }
+}, 1000);
+
+</script>
+
+
+</body>
+</html>
